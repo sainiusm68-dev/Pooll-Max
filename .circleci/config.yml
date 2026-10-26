@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  build-game:
+    docker:
+      - image: cimg/node:20
+    steps:
+      - checkout
+      - run:
+          name: Siapkan berkas game biliar
+          command: |
+            echo "Mulai membangun game Pooll‑Max"
+            mkdir -p build
+            cp *.html *.js *.css build/
+workflows:
+  build-and-test:
+    jobs:
+      - build-game
+      
